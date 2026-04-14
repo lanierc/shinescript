@@ -81,10 +81,7 @@ Shinescript comes with a lightweight but powerful set of built-in functions:
 
 ### Prerequisites
 - Python 3.8+
-Certainly! A professional, English `README.md` is essential if you want your programming language to be recognized globally by other developers. 
-
-Here is a polished version tailored for **ShineScript**:
-
+- A computer that can run better than potato(idk never tested on potato. probably works)
 ---
 
 ## 🚀 Installation (Linux)

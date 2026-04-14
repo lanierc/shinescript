@@ -66,7 +66,7 @@ prints("Liftoff!");
 
 ---
 
-## 🛠 Standard Library
+## Standard Library
 
 Shinescript comes with a lightweight but powerful set of built-in functions:
 

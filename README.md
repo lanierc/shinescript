@@ -81,6 +81,45 @@ Shinescript comes with a lightweight but powerful set of built-in functions:
 
 ### Prerequisites
 - Python 3.8+
+Certainly! A professional, English `README.md` is essential if you want your programming language to be recognized globally by other developers. 
+
+Here is a polished version tailored for **ShineScript**:
+
+---
+
+## 🚀 Installation (Linux)
+
+ShineScript comes with an automated installation script that sets up the environment and creates a global terminal command (`shines`) for you.
+
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/yourusername/shinescript.git
+   cd shinescript
+   ```
+
+2. **Grant execution permissions to the installer:**
+   ```bash
+   chmod +x install.sh
+   ```
+
+3. **Run the installer as root:**
+   ```bash
+   sudo ./install.sh
+   ```
+
+## 📂 Project Structure
+
+* `shines/`: The core engine of the language (Lexer, Parser, and `main.py`).
+* `install.sh`: Automated setup script for Linux environments.
+* `examples/`: Sample scripts to help you get started with the syntax.
+
+## 🛠️ Core Philosophy
+
+* **Approachability:** Maintain the low learning curve found in Python.
+* **Standardization:** Enforce general programming standards to ensure code quality and maintainability.
+* **Portability:** Designed to run seamlessly across Linux systems.
+
+---
 
 ### Running Shinescript
 You can run Shinescript files using the provided interpreter:

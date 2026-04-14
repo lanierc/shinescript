@@ -1,4 +1,4 @@
-# hinescript
+# shinescript
 
 **Shinescript** is a modern, statically-typed programming language designed to combine the readability and simplicity of Python with the familiar structure of C-style languages (curly braces and explicit typing).
 

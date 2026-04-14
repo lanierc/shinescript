@@ -61,7 +61,7 @@ while (count > 0) {
     prints("T-minus: ", count);
     count = count - 1;
 }
-prints("Liftoff! 🚀");
+prints("Liftoff!");
 ```
 
 ---
@@ -77,14 +77,14 @@ Shinescript comes with a lightweight but powerful set of built-in functions:
 
 ---
 
-## 🏗 Setup & Execution
+## Setup & Execution
 
 ### Prerequisites
 - Python 3.8+
 - A computer that can run better than potato(idk never tested on potato. probably works)
 ---
 
-## 🚀 Installation (Linux)
+## Installation (Linux)
 
 ShineScript comes with an automated installation script that sets up the environment and creates a global terminal command (`shines`) for you.
 
@@ -104,13 +104,13 @@ ShineScript comes with an automated installation script that sets up the environ
    sudo ./install.sh
    ```
 
-## 📂 Project Structure
+## Project Structure
 
 * `shines/`: The core engine of the language (Lexer, Parser, and `main.py`).
 * `install.sh`: Automated setup script for Linux environments.
 * `examples/`: Sample scripts to help you get started with the syntax.
 
-## 🛠️ Core Philosophy
+## Core Philosophy
 
 * **Approachability:** Maintain the low learning curve found in Python.
 * **Standardization:** Enforce general programming standards to ensure code quality and maintainability.
@@ -127,9 +127,9 @@ shines file_to_run.ss/.shn
 
 ---
 
-## 🎨 VS Code Extension
+## VS Code Extension
 For the best experience, use the **Shinescript VS Code Extension**, which provides:
-- 🌈 Full Syntax Highlighting
+- Full Syntax Highlighting
 - Play Button for native execution
 - Bracket matching & Auto-completion
 

@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Configuration
-SOURCE_DIR="shines"
+SOURCE_DIR="../shines"
 SHARE_DEST="/usr/share/shines"
 BIN_DEST="/usr/bin/shines"
 

@@ -1,6 +1,6 @@
 # shinescript
 
-**Shinescript** is a modern, statically-typed programming language designed to combine the readability and simplicity of Python with the familiar structure of C-style languages (curly braces and explicit typing).
+**Shinescript** is a modern, interpreted , statically-typed programming language designed to combine the readability and simplicity of Python with the familiar structure of C-style languages (curly braces and explicit typing).
 
 It is built to be fast, expressive, and easy to learn for both beginners and experienced developers.
 

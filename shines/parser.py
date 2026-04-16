@@ -1,6 +1,6 @@
 from typing import List, Optional
-from lexer import Token
-import ast_nodes
+from .lexer import Token
+from . import ast_nodes
 
 class ParserError(Exception):
     def __init__(self, token: Token, message: str):

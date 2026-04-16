@@ -49,7 +49,23 @@ class Interpreter:
                 result = self.visit(stmt, block_env)
                 if isinstance(result, ReturnValue):
                     return result
-
+    def visit_ForLoop(self, node: ast_nodes.ForLoop, env: Environment):
+        loop_env = Environment(env)
+        if node.init_node:
+            self.visit(node.init_node, loop_env)
+        def condition_met():
+            if node.condition is None:
+                return True
+            return bool(self.visit(node.condition, loop_env))
+        while condition_met():
+            block_env = Environment(loop_env)
+            for stmt in node.body:
+                result = self.visit(stmt, block_env)
+                if result is not None and type(result).__name__ == 'ReturnValue':
+                    return result
+            if node.update_node:
+                self.visit(node.update_node, loop_env)
+                
     def visit_ReturnStatement(self, node: ast_nodes.ReturnStatement, env: Environment):
         value = None
         if node.value is not None:

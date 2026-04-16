@@ -47,7 +47,7 @@ TOKEN_SPECIFICATION = [
 
 KEYWORDS = {
     'int', 'float', 'str', 'bool',
-    'func', 'if', 'else', 'while', 'return'
+    'func', 'if', 'else', 'while', 'return', 'for'  # 'for' eklendi
 }
 
 class Lexer:

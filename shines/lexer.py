@@ -26,7 +26,13 @@ TOKEN_SPECIFICATION = [
     ('NEQ',      r'!='),             # Not equal
     ('LEQ',      r'<='),             # Less than or equal
     ('GEQ',      r'>='),             # Greater than or equal
-    ('ASSIGN',   r'='),              # Assignment operator
+    ('ASSIGN',   r'='),
+    ('PLUS_ASSIGN',  r'\+='),            # +=  (PLUS'ın üstünde olmalı!)
+    ('MINUS_ASSIGN', r'-='),             # -=  (MINUS'ın üstünde olmalı!)
+    ('AND',          r'&&'),             # &&
+    ('OR',           r'\|\|'),           # ||
+    ('LBRACK',       r'\['),             # [
+    ('RBRACK',       r'\]'),             # ]# Assignment operator
     ('LT',       r'<'),              # Less than
     ('GT',       r'>'),              # Greater than
     ('PLUS',     r'\+'),             # Addition operator

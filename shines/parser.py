@@ -266,5 +266,17 @@ class Parser:
             node = self.parse_expression()
             self.eat('RPAREN')
             return node
-            
+        elif token.type == 'LBRACK':
+            self.eat('LBRACK')
+            elements = []
+            if self.current_token().type != 'RBRACK':
+                while True:
+                    elements.append(self.parse_expression())
+                    if self.current_token().type == 'COMMA':
+                        self.eat('COMMA')
+                    else:
+                        break
+            self.eat('RBRACK')
+            return ast_nodes.ArrayLiteral(elements)
+        
         raise ParserError(token, f"Unexpected token in expression: {token.type} ('{token.value}')")

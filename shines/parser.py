@@ -74,12 +74,29 @@ class Parser:
 
     def parse_assignment(self, require_semi: bool = True) -> ast_nodes.AST:
         var_name_token = self.eat('ID')
-        self.eat('ASSIGN')
         
-        value = self.parse_expression()
+        token = self.current_token()
+        if token.type == 'ASSIGN':
+            self.eat('ASSIGN')
+            value = self.parse_expression()
+            
+        elif token.type in ('PLUS_ASSIGN', 'MINUS_ASSIGN'):
+            op_token = self.eat(token.type)
+            op = '+' if op_token.type == 'PLUS_ASSIGN' else '-'
+            right_value = self.parse_expression()
+            
+            # Arka planda x += 5'i -> x = x + 5'e dönüştürüyoruz
+            value = ast_nodes.BinaryOperation(
+                ast_nodes.Identifier(var_name_token.value),
+                op,
+                right_value
+            )
+        else:
+            raise ParserError(token, f"Expected '=', '+=' or '-=', got {token.type}")
+            
         if require_semi:
             self.eat('SEMI')
-        
+            
         return ast_nodes.Assignment(var_name_token.value, value)
         
     def parse_for_loop(self) -> ast_nodes.AST:

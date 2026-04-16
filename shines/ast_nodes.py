@@ -52,7 +52,11 @@ class BinaryOp(AST):
         self.left = left
         self.op = op
         self.right = right
-
+        
+class ArrayLiteral(AST):
+    def __init__(self, elements):
+        self.elements = elements
+        
 class Literal(AST):
     def __init__(self, type_name: str, value: any):
         # type_name should be 'int', 'float', 'str', or 'bool'

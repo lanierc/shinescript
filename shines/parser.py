@@ -43,7 +43,8 @@ class Parser:
             
         elif token.type == 'WHILE':
             return self.parse_while_loop()
-            
+        elif token.type == 'FOR': # YENİ EKLENEN KISIM
+            return self.parse_for_loop()
         elif token.type == 'RETURN':
             return self.parse_return_statement()
             
@@ -71,15 +72,48 @@ class Parser:
         
         return ast_nodes.VariableDeclaration(type_token.value, var_name_token.value, value)
 
-    def parse_assignment(self) -> ast_nodes.AST:
+    def parse_assignment(self, require_semi: bool = True) -> ast_nodes.AST:
         var_name_token = self.eat('ID')
         self.eat('ASSIGN')
         
         value = self.parse_expression()
-        self.eat('SEMI')
+        if require_semi:
+            self.eat('SEMI')
         
         return ast_nodes.Assignment(var_name_token.value, value)
-
+        
+    def parse_for_loop(self) -> ast_nodes.AST:
+        self.eat('FOR')
+        self.eat('LPAREN')
+        
+        # 1. Başlangıç ataması (Örn: int i = 0; veya i = 0;)
+        init_node = None
+        if self.current_token().type in ('INT', 'FLOAT', 'STR', 'BOOL'):
+            init_node = self.parse_variable_declaration() # Zaten SEMI yutuyor
+        elif self.current_token().type == 'ID':
+            init_node = self.parse_assignment() # Zaten SEMI yutuyor
+        else:
+            self.eat('SEMI') # Boş geçilmişse (Örn: for(; i<10; ...))
+            
+        # 2. Koşul (Örn: i < 10)
+        condition = None
+        if self.current_token().type != 'SEMI':
+            condition = self.parse_expression()
+        self.eat('SEMI')
+        
+        # 3. Güncelleme/Artırım (Örn: i = i + 1)
+        update_node = None
+        if self.current_token().type == 'ID':
+            # Noktalı virgül beklememesi için require_semi=False diyoruz
+            update_node = self.parse_assignment(require_semi=False) 
+            
+        self.eat('RPAREN')
+        
+        # 4. Gövde
+        body = self.parse_block()
+        
+        return ast_nodes.ForLoop(init_node, condition, update_node, body)
+        
     def parse_function_declaration(self) -> ast_nodes.AST:
         self.eat('FUNC')
         name_token = self.eat('ID')

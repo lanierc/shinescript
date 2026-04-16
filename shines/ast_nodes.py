@@ -24,7 +24,14 @@ class WhileLoop(AST):
     def __init__(self, condition: AST, body: List[AST]):
         self.condition = condition
         self.body = body
-
+        
+class ForLoop(AST):
+    def __init__(self, init_node, condition, update_node, body):
+        self.init_node = init_node
+        self.condition = condition
+        self.update_node = update_node
+        self.body = body
+        
 class VariableDeclaration(AST):
     def __init__(self, type_name: str, var_name: str, value: AST):
         self.type_name = type_name

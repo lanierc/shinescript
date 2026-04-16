@@ -1,8 +1,8 @@
 import sys
-from lexer import Lexer
-from parser import Parser
-from interpreter import Interpreter
-import ast_nodes
+from .lexer import Lexer            # Nokta eklendi
+from .parser import Parser          # Nokta eklendi
+from .interpreter import Interpreter # Nokta eklendi
+from . import ast_nodes             # Nokta eklendi
 
 def run(file_path):
     with open(file_path, 'r') as f:
@@ -26,8 +26,12 @@ def run(file_path):
     except Exception as e:
         print(f"Error: {e}")
 
-if __name__ == '__main__':
+# Terminalden 'shines' yazıldığında bu fonksiyon tetiklenecek
+def main():
     if len(sys.argv) < 2:
-        print("Usage: python main.py <file.ss>")
+        print("Usage: shines <file.ss>") # python main.py yerine shines yazdık
     else:
         run(sys.argv[1])
+
+if __name__ == '__main__':
+    main()

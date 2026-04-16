@@ -1,5 +1,5 @@
-import ast_nodes
-from environment import Environment
+from . import ast_nodes
+from .environment import Environment
 
 class Interpreter:
     def __init__(self):
